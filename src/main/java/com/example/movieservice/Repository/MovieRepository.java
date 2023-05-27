@@ -11,5 +11,12 @@ import java.util.Optional;
 
 @Repository
 public interface MovieRepository extends JpaRepository<Movie, Long> {
-
+@Override
+Optional<Movie> findById(Long along);
+@Override
+<S extends Movie> S save(S entity);
+@Override
+void deleteById(Long aLong);
+@Override
+List<Movie> findAll();
 }

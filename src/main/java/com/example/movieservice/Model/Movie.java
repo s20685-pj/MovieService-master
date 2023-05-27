@@ -1,6 +1,8 @@
 package com.example.movieservice.Model;
 
 import jakarta.persistence.*;
+import org.jetbrains.annotations.NotNull;
+
 
 @Entity
 public class Movie {
@@ -12,6 +14,27 @@ public class Movie {
     @Enumerated(EnumType.STRING)
     private MovieCategory category;
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Boolean getAvailable() {
+        return isAvailable;
+    }
+
+    public void setAvailable(Boolean available) {
+        isAvailable = available;
+    }
+
+    @NotNull
+    private Boolean isAvailable;
+
+    public Movie(Long id, String name, MovieCategory category){
+        this.category = category;
+        this.id = id;
+        this.name = name;
+        this.isAvailable = false;
+    }
     public long getId() {
         return id;
     }

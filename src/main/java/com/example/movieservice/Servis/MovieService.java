@@ -35,4 +35,10 @@ public class MovieService {
     public void deleteMovie(Long id) {
         movieRepository.deleteById(id);
     }
+
+    public void changeIsA(Long id){
+        Movie target = findById(id);
+        target.setAvailable(!target.getAvailable());
+        movieRepository.save(target);
+    }
 }

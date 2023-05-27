@@ -47,6 +47,12 @@ public class MovieController {
             return ResponseEntity.badRequest().build();
         }
     }
+    //Check for avilibility
+    @PutMapping("/isAvaiable/{id}")
+    public ResponseEntity<Void> updateFilmIsAvailable(@PathVariable Long id){
+        movieService.changeIsA(id);
+        return ResponseEntity.ok().build();
+    }
 
     //updating movie
 
